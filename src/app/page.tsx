@@ -1,95 +1,363 @@
+import Content from "@/components/content";
+import FooterIcon from "@/components/footerIcon";
+import ProjectItem from "@/components/projectItem";
+import RiseUpComponent from "@/components/riseUpComponent";
+import SlideInComponent from "@/components/slideInComponent";
+import loadProjects from "@/lib/loadProjects";
+import { CallEnd, KeyboardArrowRightRounded } from "@mui/icons-material";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Metadata } from "next";
 import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const projects = loadProjects();
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return (
+    <Box display={"flex"} flexDirection={"column"} gap={"150px"}>
+      <RiseUpComponent>
+        <Box
+          minHeight={"100vh"}
+          display={"flex"}
+          flexDirection={"column"}
+          gap={"40px"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Image
+            src={"/logo.png"}
+            alt="logo"
+            width={80}
+            height={80}
+            style={{ borderRadius: "20px" }}
+          />
+          <Typography
+            variant="h1"
+            sx={{ fontSize: "clamp(1.6rem, 4vw, 4rem)" }}
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
+            WEGA STUDIO<span>S</span>
+          </Typography>
+          <SlideInComponent>
+            <Typography
+              maxWidth={"800px"}
+              textAlign={"center"}
+              sx={{
+                letterSpacing: "0.15em",
+                lineHeight: "30px",
+              }}
+            >
+              We are a software development company based in Kenya
+              {
+                <Image
+                  src={"https://flagcdn.com/w20/ke.png"}
+                  alt="kenyan flag"
+                  width={15}
+                  height={10}
+                />
+              }
+              , creating digital solutions that help individuals and
+              organizations save time, boost efficiency, and unlock new
+              opportunities.
+            </Typography>
+          </SlideInComponent>
+          <Link href={"/#projects"}>
+            <Button
+              variant="contained"
+              disableElevation
+              endIcon={<KeyboardArrowRightRounded />}
+            >
+              Learn more
+            </Button>
+          </Link>
+        </Box>
+      </RiseUpComponent>
+      <Box
+        component={"section"}
+        id="projects"
+        display={"flex"}
+        flexDirection={"column"}
+        gap={"80px"}
+      >
+        <SlideInComponent>
+          <Box display={"flex"} flexDirection={"column"} gap={"40px"}>
+            <Typography variant="h1">
+              PROJECT<span>S</span>
+            </Typography>
+            <Typography>
+              Our projects are designed to solve real-world challenges by
+              combining innovation, efficiency, and user-centered design. Our
+              goal is to create applications that have a lasting impact on
+              everyday life.
+            </Typography>
+          </Box>
+        </SlideInComponent>
+        {projects.map((item, index) => (
+          <RiseUpComponent key={index}>
+            <ProjectItem key={index} {...item} />
+          </RiseUpComponent>
+        ))}
+      </Box>
+      <Box
+        component={"section"}
+        id="about"
+        display={"flex"}
+        flexDirection={"column"}
+        gap={"80px"}
+      >
+        <SlideInComponent>
+          <Box display={"flex"} flexDirection={"column"} gap={"40px"}>
+            <Typography variant="h1">
+              About <span>Us</span>
+            </Typography>
+            <Typography>
+              We aim to design and deliver software that transforms challenges
+              into opportunities by developing intuitive, scalable, and reliable
+              applications that improve productivity and simplify everyday tasks
+            </Typography>
+          </Box>
+        </SlideInComponent>
+        <Content
+          title="Our Vision"
+          description="To be a global leader in software innovation — building intelligent solutions that simplify daily life. We aspire to create technology that bridges gaps, reduces inefficiencies, and inspires meaningful change in the way people live and work."
+          image="/vision.png"
+        />
+        <Content
+          title="Our Mission"
+          description="To Empower businesses and individuals by providing tools that enhance decision-making, efficiency, and growth and to contribute sustainable digital transformation by creating technology that adapts to evolving human needs."
+          image="/mission.png"
+          reverse
+        />
+      </Box>
+      <Box
+        component={"section"}
+        id="contact"
+        display={"flex"}
+        flexDirection={"column"}
+        gap={"80px"}
+      >
+        <SlideInComponent>
+          <Box display={"flex"} flexDirection={"column"} gap={"40px"}>
+            <Typography variant="h1">
+              Contact <span>Us</span>
+            </Typography>
+            <Typography>
+              Reach out to us if you have any feedback on any of our products or
+              you're seeking to develop software solutions or you have more
+              inquiries on our services
+            </Typography>
+          </Box>
+        </SlideInComponent>
+        <RiseUpComponent>
+          <Box
+            padding={"50px 30px"}
+            bgcolor={"secondary.main"}
+            borderRadius={"30px"}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <form>
+              <Grid
+                sx={{
+                  maxWidth: "900px",
+                  margin: "0 auto",
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+                  gridTemplateAreas: {
+                    xs: `"content" "form" "button"`,
+                    md: `"content form" "button form"`,
+                  },
+                  gap: "30px",
+                  color: "black",
+                }}
+              >
+                <Box
+                  gridArea={"content"}
+                  display={"flex"}
+                  flexDirection={"column"}
+                  height={"100%"}
+                  justifyContent={"flex-end"}
+                  gap={"20px"}
+                >
+                  <TextField
+                    required
+                    color="info"
+                    label="Name"
+                    name="name"
+                    type="text"
+                    placeholder="Your Name"
+                    sx={{
+                      input: {
+                        color: "black",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        fieldset: {
+                          borderColor: "black",
+                        },
+                        "&:hover fieldset": {
+                          borderColor: "black",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black",
+                        },
+                      },
+                    }}
+                  />
+                  <TextField
+                    required
+                    color="info"
+                    label="Email"
+                    name="email"
+                    type="email"
+                    placeholder="Your Email"
+                    sx={{
+                      input: {
+                        color: "black",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        fieldset: {
+                          borderColor: "black",
+                        },
+                        "&:hover fieldset": {
+                          borderColor: "black",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black",
+                        },
+                      },
+                    }}
+                  />
+                </Box>
+                <Box
+                  gridArea={"form"}
+                  display={"flex"}
+                  flexDirection={"column"}
+                  gap={"20px"}
+                >
+                  <TextField
+                    variant="outlined"
+                    color="info"
+                    label="Message"
+                    placeholder="Message"
+                    name="message"
+                    type="text"
+                    multiline
+                    rows={7}
+                    sx={{
+                      textarea: {
+                        color: "black",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        fieldset: {
+                          borderColor: "black",
+                        },
+                        "&:hover fieldset": {
+                          borderColor: "black",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black",
+                        },
+                      },
+                    }}
+                  />
+                </Box>
+                <Box gridArea={"button"}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    disableElevation
+                    startIcon={<CallEnd />}
+                    color="info"
+                  >
+                    Contact Us
+                  </Button>
+                </Box>
+              </Grid>
+            </form>
+          </Box>
+        </RiseUpComponent>
+      </Box>
+      <Box
+        component={"footer"}
+        display={"flex"}
+        justifyContent={"space-between"}
+        flexWrap={"wrap"}
+        alignItems={"center"}
+        pb={"20px"}
+      >
+        <Link
+          href={"/"}
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            gap: "20px",
+          }}
         >
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src={"/logo.png"}
+            alt="logo"
+            width={30}
+            height={30}
+            style={{ borderRadius: "10px" }}
           />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Typography sx={{ color: "text.secondary", fontSize: "0.8rem" }}>
+            © 2025 All rights reserved
+          </Typography>
+        </Link>
+        <Box display={"flex"} flexWrap={"wrap"} gap={"10px"}>
+          <FooterIcon
+            href="https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            type="instagram"
           />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <FooterIcon
+            href="https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            type="twitter"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <FooterIcon
+            href="https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            type="linkedIn"
+          />
+        </Box>
+      </Box>
+    </Box>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Wegah Studios",
+  description:
+    "We are a software development company based in Kenya, creating digital solutions that help individuals and organizations save time, boost efficiency, and unlock new opportunities.",
+  keywords: [
+    "wegah",
+    "wegah studios",
+    "kenya",
+    "tech",
+    "software",
+    "software development",
+    "software tools",
+    "mobile apps",
+    "websites",
+  ],
+  openGraph: {
+    title: "Wegah Studios",
+    description:
+      "We are a software development company based in Kenya, creating digital solutions that help individuals and organizations save time, boost efficiency, and unlock new opportunities.",
+    url: "https://yourdomain.com",
+    siteName: "Wegah Studios",
+    images: [
+      {
+        url: "https://yourdomain.com/og-image.jpg", // Replace with a real image
+        width: 1024,
+        height: 1024,
+        alt: "SaaS",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wegah Studios",
+    description:
+      "We are a software development company based in Kenya, creating digital solutions that help individuals and organizations save time, boost efficiency, and unlock new opportunities.",
+    images: ["https://yourdomain.com/og-image.jpg"],
+  },
+};
