@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import RiseUpComponent from "./riseUpComponent";
+import SlideInComponent from "./slideInComponent";
 
 const Content = ({
   reverse = false,
@@ -38,10 +39,14 @@ const Content = ({
               maxWidth={"450px"}
               m={"0 auto"}
             >
-              <Typography variant="h2" sx={{ color: "black" }}>
-                {title}
-              </Typography>
-              <Typography sx={{ color: "black" }}>{description}</Typography>
+              <SlideInComponent>
+                <Typography variant="h2" sx={{ color: "black" }}>
+                  {title}
+                </Typography>
+              </SlideInComponent>
+              <SlideInComponent delay={0.3}>
+                <Typography sx={{ color: "black" }}>{description}</Typography>
+              </SlideInComponent>
             </Box>
           </Box>
         </RiseUpComponent>

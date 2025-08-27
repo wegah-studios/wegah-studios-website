@@ -60,15 +60,17 @@ export default function Home() {
               opportunities.
             </Typography>
           </SlideInComponent>
-          <Link href={"/#projects"}>
-            <Button
-              variant="contained"
-              disableElevation
-              endIcon={<KeyboardArrowRightRounded />}
-            >
-              Learn more
-            </Button>
-          </Link>
+          <RiseUpComponent delay={0.3}>
+            <Link href={"/#projects"}>
+              <Button
+                variant="contained"
+                disableElevation
+                endIcon={<KeyboardArrowRightRounded />}
+              >
+                Learn more
+              </Button>
+            </Link>
+          </RiseUpComponent>
         </Box>
       </RiseUpComponent>
       <Box
@@ -83,12 +85,14 @@ export default function Home() {
             <Typography variant="h1">
               PROJECT<span>S</span>
             </Typography>
-            <Typography>
-              Our projects are designed to solve real-world challenges by
-              combining innovation, efficiency, and user-centered design. Our
-              goal is to create applications that have a lasting impact on
-              everyday life.
-            </Typography>
+            <RiseUpComponent delay={0.3}>
+              <Typography>
+                Our projects are designed to solve real-world challenges by
+                combining innovation, efficiency, and user-centered design. Our
+                goal is to create applications that have a lasting impact on
+                everyday life.
+              </Typography>
+            </RiseUpComponent>
           </Box>
         </SlideInComponent>
         {projects.map((item, index) => (
@@ -109,11 +113,14 @@ export default function Home() {
             <Typography variant="h1">
               About <span>Us</span>
             </Typography>
-            <Typography>
-              We aim to design and deliver software that transforms challenges
-              into opportunities by developing intuitive, scalable, and reliable
-              applications that improve productivity and simplify everyday tasks
-            </Typography>
+            <RiseUpComponent delay={0.3}>
+              <Typography>
+                We aim to design and deliver software that transforms challenges
+                into opportunities by developing intuitive, scalable, and
+                reliable applications that improve productivity and simplify
+                everyday tasks
+              </Typography>
+            </RiseUpComponent>
           </Box>
         </SlideInComponent>
         <Content
@@ -140,11 +147,13 @@ export default function Home() {
             <Typography variant="h1">
               Contact <span>Us</span>
             </Typography>
-            <Typography>
-              Reach out to us if you have any feedback on any of our products or
-              you're seeking to develop software solutions or you have more
-              inquiries on our services
-            </Typography>
+            <RiseUpComponent delay={0.3}>
+              <Typography>
+                Reach out to us if you have any feedback on any of our products
+                or you're seeking to develop software solutions or you have more
+                inquiries on our services
+              </Typography>
+            </RiseUpComponent>
           </Box>
         </SlideInComponent>
         <RiseUpComponent>
@@ -176,54 +185,60 @@ export default function Home() {
                   justifyContent={"flex-end"}
                   gap={"20px"}
                 >
-                  <TextField
-                    required
-                    color="info"
-                    label="Name"
-                    name="name"
-                    type="text"
-                    placeholder="Your Name"
-                    sx={{
-                      input: {
-                        color: "black",
-                      },
-                      "& .MuiOutlinedInput-root": {
-                        fieldset: {
-                          borderColor: "black",
+                  <SlideInComponent>
+                    <TextField
+                      required
+                      fullWidth
+                      color="info"
+                      label="Name"
+                      name="name"
+                      type="text"
+                      placeholder="Your Name"
+                      sx={{
+                        input: {
+                          color: "black",
                         },
-                        "&:hover fieldset": {
-                          borderColor: "black",
+                        "& .MuiOutlinedInput-root": {
+                          fieldset: {
+                            borderColor: "black",
+                          },
+                          "&:hover fieldset": {
+                            borderColor: "black",
+                          },
+                          "&.Mui-focused fieldset": {
+                            borderColor: "black",
+                          },
                         },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black",
+                      }}
+                    />
+                  </SlideInComponent>
+                  <SlideInComponent delay={0.3}>
+                    <TextField
+                      fullWidth
+                      required
+                      color="info"
+                      label="Email"
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      sx={{
+                        input: {
+                          color: "black",
                         },
-                      },
-                    }}
-                  />
-                  <TextField
-                    required
-                    color="info"
-                    label="Email"
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    sx={{
-                      input: {
-                        color: "black",
-                      },
-                      "& .MuiOutlinedInput-root": {
-                        fieldset: {
-                          borderColor: "black",
+                        "& .MuiOutlinedInput-root": {
+                          fieldset: {
+                            borderColor: "black",
+                          },
+                          "&:hover fieldset": {
+                            borderColor: "black",
+                          },
+                          "&.Mui-focused fieldset": {
+                            borderColor: "black",
+                          },
                         },
-                        "&:hover fieldset": {
-                          borderColor: "black",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black",
-                        },
-                      },
-                    }}
-                  />
+                      }}
+                    />
+                  </SlideInComponent>
                 </Box>
                 <Box
                   gridArea={"form"}
@@ -231,43 +246,48 @@ export default function Home() {
                   flexDirection={"column"}
                   gap={"20px"}
                 >
-                  <TextField
-                    variant="outlined"
-                    color="info"
-                    label="Message"
-                    placeholder="Message"
-                    name="message"
-                    type="text"
-                    multiline
-                    rows={7}
-                    sx={{
-                      textarea: {
-                        color: "black",
-                      },
-                      "& .MuiOutlinedInput-root": {
-                        fieldset: {
-                          borderColor: "black",
+                  <RiseUpComponent>
+                    <TextField
+                      fullWidth
+                      variant="outlined"
+                      color="info"
+                      label="Message"
+                      placeholder="Message"
+                      name="message"
+                      type="text"
+                      multiline
+                      rows={7}
+                      sx={{
+                        textarea: {
+                          color: "black",
                         },
-                        "&:hover fieldset": {
-                          borderColor: "black",
+                        "& .MuiOutlinedInput-root": {
+                          fieldset: {
+                            borderColor: "black",
+                          },
+                          "&:hover fieldset": {
+                            borderColor: "black",
+                          },
+                          "&.Mui-focused fieldset": {
+                            borderColor: "black",
+                          },
                         },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black",
-                        },
-                      },
-                    }}
-                  />
+                      }}
+                    />
+                  </RiseUpComponent>
                 </Box>
                 <Box gridArea={"button"}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    disableElevation
-                    startIcon={<CallEnd />}
-                    color="info"
-                  >
-                    Contact Us
-                  </Button>
+                  <SlideInComponent delay={0.5}>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      disableElevation
+                      startIcon={<CallEnd />}
+                      color="info"
+                    >
+                      Contact Us
+                    </Button>
+                  </SlideInComponent>
                 </Box>
               </Grid>
             </form>
@@ -344,10 +364,10 @@ export const metadata: Metadata = {
     siteName: "Wegah Studios",
     images: [
       {
-        url: "https://yourdomain.com/og-image.jpg", // Replace with a real image
+        url: "https://yourdomain.com/logo.png",
         width: 1024,
         height: 1024,
-        alt: "SaaS",
+        alt: "Wegah Studios",
       },
     ],
     locale: "en_US",
@@ -358,6 +378,6 @@ export const metadata: Metadata = {
     title: "Wegah Studios",
     description:
       "We are a software development company based in Kenya, creating digital solutions that help individuals and organizations save time, boost efficiency, and unlock new opportunities.",
-    images: ["https://yourdomain.com/og-image.jpg"],
+    images: ["https://yourdomain.com/logo.png"],
   },
 };

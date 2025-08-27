@@ -1,22 +1,21 @@
 "use client";
 import useIntersectionObserver from "@/hooks/intersectionObserverHook";
-import { Box } from "@mui/material";
+import { Box, BoxProps } from "@mui/material";
 import React from "react";
 
 const SlideInComponent = ({
   delay,
   children,
-}: {
+  ...props
+}: BoxProps & {
   delay?: number;
   children: React.ReactNode;
 }) => {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3 }) as [
-    React.RefObject<null>,
-    boolean
-  ];
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
   return (
-    <Box ref={ref}>
+    <Box {...props} ref={ref}>
       <Box
+        {...props}
         sx={{
           transition: "transform 0.4s ease-in-out, opacity 0.4s ease",
           opacity: isVisible ? 1 : 0,

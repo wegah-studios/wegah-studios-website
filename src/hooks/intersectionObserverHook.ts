@@ -11,7 +11,7 @@ export default function useIntersectionObserver(
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsVisible(true);
-        observer.unobserve(entry.target); 
+        observer.unobserve(entry.target);
       }
     }, options);
 
@@ -24,5 +24,5 @@ export default function useIntersectionObserver(
     };
   }, [ref, options]);
 
-  return [ref, isVisible];
+  return { ref, isVisible };
 }

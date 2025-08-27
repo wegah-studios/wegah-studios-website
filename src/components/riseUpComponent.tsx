@@ -11,10 +11,7 @@ const RiseUpComponent = ({
   delay?: number;
   children: React.ReactNode;
 }) => {
-  const [ref, isVisible] = useIntersectionObserver({ threshold: 0.3 }) as [
-    React.RefObject<null>,
-    boolean
-  ];
+  const { ref, isVisible } = useIntersectionObserver({ threshold: 0.3 });
   return (
     <Box ref={ref} {...props}>
       <Box

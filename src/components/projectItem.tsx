@@ -3,6 +3,8 @@ import { ArrowOutwardRounded } from "@mui/icons-material";
 import { Box, Button, Link, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+import SlideInComponent from "./slideInComponent";
+import RiseUpComponent from "./riseUpComponent";
 
 const ProjectItem = ({ title, description, image }: Project) => {
   return (
@@ -14,7 +16,6 @@ const ProjectItem = ({ title, description, image }: Project) => {
       gap={"40px"}
       bgcolor={"secondary.main"}
       borderRadius={"30px"}
-      
     >
       <Box
         display={"flex"}
@@ -22,21 +23,27 @@ const ProjectItem = ({ title, description, image }: Project) => {
         gap={"30px"}
         alignItems={"center"}
       >
-        <Typography variant="h2" flex={1} sx={{ color: "black" }}>
-          {title}
-        </Typography>
-        <Link href={"/"} target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="contained"
-            disableElevation
-            endIcon={<ArrowOutwardRounded />}
-            sx={{ borderRadius: "30px", textTransform: "none" }}
-          >
-            Visit Site
-          </Button>
-        </Link>
+        <SlideInComponent flex={1}>
+          <Typography variant="h2" sx={{ color: "black" }}>
+            {title}
+          </Typography>
+        </SlideInComponent>
+        <SlideInComponent delay={0.3}>
+          <Link href={"/"} target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="contained"
+              disableElevation
+              endIcon={<ArrowOutwardRounded />}
+              sx={{ borderRadius: "30px", textTransform: "none" }}
+            >
+              Visit Site
+            </Button>
+          </Link>
+        </SlideInComponent>
       </Box>
-      <Typography sx={{ color: "black" }}>{description}</Typography>
+      <RiseUpComponent delay={0.3}>
+        <Typography sx={{ color: "black" }}>{description}</Typography>
+      </RiseUpComponent>
       <Box
         sx={{
           position: "relative",
