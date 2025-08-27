@@ -150,7 +150,7 @@ export default function Home() {
             <RiseUpComponent delay={0.3}>
               <Typography>
                 Reach out to us if you have any feedback on any of our products
-                or you're seeking to develop software solutions or you have more
+                or you’re seeking to develop software solutions or you have more
                 inquiries on our services
               </Typography>
             </RiseUpComponent>
@@ -162,7 +162,19 @@ export default function Home() {
             bgcolor={"secondary.main"}
             borderRadius={"30px"}
           >
-            <form>
+            <form
+              name="contact"
+              method="POST"
+              action={"/contact"}
+              data-netlify="true"
+            >
+              <input
+                type="hidden"
+                name="form-name"
+                value="contact"
+                style={{ opacity: 0 }}
+              />
+              <input name="bot-field" style={{ opacity: 0 }} />
               <Grid
                 sx={{
                   maxWidth: "900px",
@@ -277,7 +289,7 @@ export default function Home() {
                   </RiseUpComponent>
                 </Box>
                 <Box gridArea={"button"}>
-                  <SlideInComponent delay={0.5}>
+                  <SlideInComponent delay={0.4}>
                     <Button
                       type="submit"
                       variant="contained"
