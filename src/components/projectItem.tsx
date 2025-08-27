@@ -6,7 +6,7 @@ import React from "react";
 import SlideInComponent from "./slideInComponent";
 import RiseUpComponent from "./riseUpComponent";
 
-const ProjectItem = ({ title, description, image }: Project) => {
+const ProjectItem = ({ title, description, image, url }: Project) => {
   return (
     <Box
       padding={"clamp(15px, 5vw, 50px)"}
@@ -29,7 +29,7 @@ const ProjectItem = ({ title, description, image }: Project) => {
           </Typography>
         </SlideInComponent>
         <SlideInComponent delay={0.3}>
-          <Link href={"/"} target="_blank" rel="noopener noreferrer">
+          <Link href={url} target="_blank" rel="noopener noreferrer">
             <Button
               variant="contained"
               disableElevation

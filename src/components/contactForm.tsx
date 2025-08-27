@@ -50,7 +50,7 @@ const ContactForm = () => {
             <input
               type="hidden"
               name="form-name"
-              value="contact"
+              value="wegah-studios-contact"
               style={{ opacity: 0 }}
             />
             <input name="bot-field" style={{ opacity: 0 }} />

@@ -5,8 +5,8 @@ import ProjectItem from "@/components/projectItem";
 import RiseUpComponent from "@/components/riseUpComponent";
 import SlideInComponent from "@/components/slideInComponent";
 import loadProjects from "@/lib/loadProjects";
-import { CallEnd, KeyboardArrowRightRounded } from "@mui/icons-material";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { KeyboardArrowRightRounded } from "@mui/icons-material";
+import { Box, Button, Typography } from "@mui/material";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -189,15 +189,24 @@ export default function Home() {
         </Link>
         <Box display={"flex"} flexWrap={"wrap"} gap={"10px"}>
           <FooterIcon
-            href="https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            href={
+              process.env.INSTAGRAM_URL ||
+              "https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            }
             type="instagram"
           />
           <FooterIcon
-            href="https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            href={
+              process.env.TWITTER_URL ||
+              "https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            }
             type="twitter"
           />
           <FooterIcon
-            href="https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            href={
+              process.env.LINKEDIN_URL ||
+              "https://www.linkedin.com/in/joshua-wegah-67b83428b/"
+            }
             type="linkedIn"
           />
         </Box>
@@ -225,11 +234,11 @@ export const metadata: Metadata = {
     title: "Wegah Studios",
     description:
       "We are a software development company based in Kenya, creating digital solutions that help individuals and organizations save time, boost efficiency, and unlock new opportunities.",
-    url: "https://yourdomain.com",
+    url: process.env.HOME_URL,
     siteName: "Wegah Studios",
     images: [
       {
-        url: "https://yourdomain.com/logo.png",
+        url: process.env.HOME_URL + "/logo.png",
         width: 1024,
         height: 1024,
         alt: "Wegah Studios",
@@ -243,6 +252,6 @@ export const metadata: Metadata = {
     title: "Wegah Studios",
     description:
       "We are a software development company based in Kenya, creating digital solutions that help individuals and organizations save time, boost efficiency, and unlock new opportunities.",
-    images: ["https://yourdomain.com/logo.png"],
+    images: [process.env.HOME_URL + "/logo.png"],
   },
 };

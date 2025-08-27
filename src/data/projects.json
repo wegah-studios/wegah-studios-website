@@ -2,6 +2,7 @@
   {
     "title": "Expense Tracker",
     "description": "An all in one powerful app to help you track your expenses, manage your budgets, and gain insights into your financial habits — all in one place.",
-    "image": "/promo.png"
+    "image": "/promo.png",
+    "url": "https://expense-tracker-wegah-studios.netlify.app"
   }
 ]
