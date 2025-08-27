@@ -162,12 +162,7 @@ export default function Home() {
             bgcolor={"secondary.main"}
             borderRadius={"30px"}
           >
-            <form
-              name="contact"
-              method="POST"
-              action={"/contact"}
-              data-netlify="true"
-            >
+            <form id="contact-form" name="contact" action={"/contact"}>
               <input
                 type="hidden"
                 name="form-name"
